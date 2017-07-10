@@ -83,7 +83,6 @@ function mask(input, mask, symbol) {
 			setCursor(arReplacementPos[0] - 1);
 			return false;
 		}
-		replaceValue(symbol, caretPos);
 		setCursor(caretPos - 1);
 	}
 
