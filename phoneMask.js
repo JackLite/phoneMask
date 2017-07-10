@@ -103,5 +103,4 @@ function mask(input, mask, symbol) {
 		}
 		return caretPos;
 	}
-
 }
