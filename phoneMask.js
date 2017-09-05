@@ -35,7 +35,7 @@ function mask(input, mask, symbol) {
 	function inputHandler() {
 		var symbol = getNewSymbol();
 
-		var replacementPos = getNextReplacementPos();
+		var replacementPos = getNextReplacementPos("input");
 		if(symbol === symbol) {
 			removePrev();
 		} else if(isNaN(symbol)) {
@@ -96,8 +96,11 @@ function mask(input, mask, symbol) {
 		setCursor(replacementPos - 1);
 	}
 
-	function getNextReplacementPos() {
+	function getNextReplacementPos(action) {
+		action = action||'focus';
 		var caretPos = getCaretPos();
+		if(action==='focus' && input.value !== mask)
+			caretPos = input.value.indexOf('_')+1;
 		while (!~arReplacementPos.indexOf(caretPos) && caretPos < mask.length) {
 			caretPos++;
 		}
